@@ -1,0 +1,27 @@
+def is_prime(number):
+    if number <= 1:
+        return False
+
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+
+    return True
+
+
+# Запрос числа у пользователя с проверкой ограничений
+while True:
+    try:
+        num = int(input("Введите число (от 2 до 100000): "))
+        if num < 2 or num > 100000:
+            print("Число должно быть от 2 до 100000. Попробуйте снова.")
+        else:
+            break
+    except ValueError:
+        print("Некорректный ввод. Попробуйте снова.")
+
+# Проверка числа на простоту и вывод результата
+if is_prime(num):
+    print(f"Число {num} является простым.")
+else:
+    print(f"Число {num} является составным.")
